@@ -26,7 +26,7 @@ public class AreaCheckServlet extends HttpServlet {
             resp.setContentType("text/html");
             PrintWriter out = resp.getWriter();
 
-            out.println("<!DOCTYPE HTML> <html> <head> <meta charset='UTF-8'> <title>Points</title> <link href=\"css/page.css\" rel=\"stylesheet\"> " +
+            out.println("<!DOCTYPE HTML> <html> <head> <meta charset='UTF-8'> <title>Points</title> <link href=\"Style.css\" rel=\"stylesheet\"> " +
                     "            </head> <body>");
             out.println("<br> <table class='tab' align='center' cellspacing=\"1px\"> <tr><td><h3>X coord</h3></td><td><h3>Y coord</h3></td><td><h3>Radius R</h3></td><td><h3>Entrance</h3></td></tr>");
 
@@ -48,10 +48,10 @@ public class AreaCheckServlet extends HttpServlet {
                 out.println("</tr>");
             }
 
-            out.println("</table> <a href=/><button class=\"ret\">Return</button></a></body> </html>");
+            out.println("</table> <a href=/lab2-war_exploded/><button class=\"ret\">Return</button></a></body> </html>");
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("/lab2_war_exploded");
+            resp.sendRedirect("/lab2-war_exploded/");
         }
     }
 

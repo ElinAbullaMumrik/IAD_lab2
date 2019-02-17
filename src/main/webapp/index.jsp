@@ -16,7 +16,7 @@
 <table width="85%" border="0" align="center">
     <tr>
         <h1></h1>
-        <td><h1>Лабораторная работа 2 Шмариной Людмилы Вариант 21199 </h1></td>
+        <td><h1>Лабораторная работа 2 Шмариной Людмилы, Базаровой Анны Вариант 21199 </h1></td>
     </tr>
 </table>
 
@@ -42,17 +42,18 @@
                                 <tr>
                                     <td width="50%">
                                         <p><b>Выберите X</b></p>
-                                        <select name="X" id="X" onchange = "setX()">
+                                        <select name="notX" id="X" onchange = "setX()">
                                             <option value="-4">-4</option>
                                             <option value="-3">-3</option>
                                             <option value="-2">-2</option>
                                             <option value="-1">-1</option>
-                                            <option value="0">0</option>
+                                            <option value="0" selected>0</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                         </select>
+                                        <input class="text" readonly id="trueX" name="X" style="visibility: hidden; display: none" value="0">
                                     </td>
                                     <td width="50%">
                                         <p><b>Выберите R</b></p>
@@ -75,7 +76,7 @@
                                                   id="Y" value="0"  onkeydown="resetValidationY()" maxlength="8"/>
                                         </p>
 
-                                        <input type="button" value="Отправить" class="R" id="sub" name="sub">
+                                        <input type="button" onclick="validation()" value="Отправить" class="R" id="sub" name="sub">
 
                                     </td>
                                 </tr>
@@ -83,9 +84,7 @@
    </form>
 </td>
 </tr>
-
 </table>
-
 </td>
 </tr>
 </table>
@@ -101,16 +100,17 @@
             <c:when test="${MyPoints.isEmpty()}">
                 <tr>
                     <td colspan="4">История точек будет отбражаться здесь</td>
+                    <script> window.onload = function (ev) { draw('graph', form.R.value);  }
+                    </script>
                 </tr>
             </c:when>
             <c:otherwise>
-                <%--<script> window.onload = function (ev) { draw('graph', form.R.value);--%>
-                    <%--console.log(form.R.value);--%>
-                    <%--document.getElementById('R').value = ${MyPoints.get(MyPoints.size()-1).getR()};--%>
-                    <%--<c:forEach var="point" items="${MyPoints}">--%>
-                    <%--drawPoint('graph', ${point.getX()}, ${point.getY()}, document.getElementById('R').value);--%>
-                    <%--</c:forEach>--%>
-                <%--}</script>--%>
+                <script> window.onload = function (ev) { draw('graph', form.R.value);
+                    document.getElementById('R').value = ${MyPoints.get(MyPoints.size()-1).getR()};
+                    <c:forEach var="point" items="${MyPoints}">
+                    drawPoint('graph', ${point.getX()}, ${point.getY()}, document.getElementById('R').value);
+                    </c:forEach>
+                }</script>
                 <c:forEach var="point" items="${MyPoints}">
                     <tr>
                         <td><c:out value="${point.getX()}"/></td>

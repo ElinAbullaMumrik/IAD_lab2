@@ -1,7 +1,7 @@
 function validation() {
     let e = document.getElementById('form');
     let stopSubmit = false;
-    let x = document.getElementById('X').value
+    let x = document.getElementById('trueX').value
     let y = e.Y.value;
     let r = e.R.value;
     let msgy = '', msgr = '';
@@ -65,8 +65,8 @@ function interract(){
     } else {
         let x = Math.round(((pos.x - 200) * r) / 140 * 10) / 10;
         let y = Math.round(((-pos.y + 200) * r) / 140 * 10) / 10;
-        document.getElementById('X').value = x;
-        e.Y.value = y;
+        document.getElementById('trueX').value = x;
+       e.Y.value = y;
         validation();
     }
 }
@@ -173,9 +173,7 @@ function draw(canv, r) {
     ctx.fillText('X', 370, 225);
 }
 
-function setX() {
-    document.getElementById('X').value = document.getElementById('X').value;
-}
+
 
 window.onkeydown = function (e) {
     let code = e.key;
@@ -232,4 +230,7 @@ function drawPoint(canv, x, y, r) {
             ctx.stroke();
         }
     }
+}
+function setX() {
+    document.getElementById('trueX').value = document.getElementById('X').value;
 }

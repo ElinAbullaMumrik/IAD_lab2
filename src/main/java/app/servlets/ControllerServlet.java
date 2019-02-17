@@ -21,7 +21,7 @@ public class ControllerServlet extends HttpServlet {
 
         if (x == null || y == null || r == null) {
 
-            resp.sendRedirect("/");
+            resp.sendRedirect("/lab2-war_exploded/");
 
         } else {
 
@@ -33,7 +33,7 @@ public class ControllerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/");
+        resp.sendRedirect("/lab2-war_exploded/");
 
     }
 }
